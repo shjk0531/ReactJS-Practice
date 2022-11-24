@@ -18,27 +18,19 @@
 
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-
-    // 버튼 클릭 count
-    function countUp() {
-      counter = counter + 1;
-      render();
-    }
-
-    // UI 렌더링
-    function render() {
-      ReactDOM.createRoot(root).render(<Container />);
-    }
 
     // div 생성
-    const Container = () => (
-      <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={countUp}>Click</button>
-      </div>
-    );
+    function App() {
+      const [counter, modifier] = React.useState();
 
-    render();
+      return (
+        <div>
+          <h3>Total clicks: 0</h3>
+          <button>Click</button>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(root).render(<Container />);
   </script>
 </html>
