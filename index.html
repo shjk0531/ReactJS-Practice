@@ -21,16 +21,21 @@
 
     // div 생성
     function App() {
-      const [counter, modifier] = React.useState();
+      const [counter, setCounter] = React.useState(0);
+
+      function onClick() {
+        setCounter(counter + 1);
+      }
 
       return (
         <div>
           <h3>Total clicks: 0</h3>
-          <button>Click</button>
+          <button onClick={onClick}>Click</button>
         </div>
       );
     }
 
+    // root 렌더링
     ReactDOM.createRoot(root).render(<Container />);
   </script>
 </html>
