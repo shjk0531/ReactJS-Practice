@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 
 <html>
+  <head> </head>
 
-<head>
-</head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script
+    src="https://unpkg.com/react@18/umd/react.development.js"
+    crossorigin
+  ></script>
+  <script
+    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    crossorigin
+  ></script>
 
-<body>
-</body>
-<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-
-<script>
-
-</script>
-
+  <script>
+    const root = document.getElementById("root");
+    const span = React.createElement(
+      "span",
+      { id: "first-span" },
+      "Hello I'm a span"
+    );
+    ReactDOM.createRoot(root).render(span);
+  </script>
 </html>
