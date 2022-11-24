@@ -17,27 +17,34 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    const root = document.getElementById("root");
-
     // div 생성
     function App() {
-      const [counter, setCounter] = React.useState(0);
+      const [minute, setMinutes] = React.useState();
 
-      // counter 값 증가 함수
-      function onClick() {
-        // setCounter(counter + 1);
-        setCounter((current) => current + 1);
-      }
+      const onChange = (event) => {
+        setMinutes(event.target.value);
+      };
 
       return (
         <div>
-          <h3>Total clicks: 0</h3>
-          <button onClick={onClick}>Click</button>
+          <h1>Super Converter</h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input
+            value={minute}
+            type="number"
+            id="minutes"
+            placeholder="Minutes"
+            onChange={onChange}
+          />
+          <h4>You want to convert {minute}</h4>
+          <label htmlFor="hours">Hours</label>
+          <input type="number" id="hours" placeholder="Hours" />
         </div>
       );
     }
 
     // root 렌더링
-    ReactDOM.createRoot(root).render(<Container />);
+    const root = document.getElementById("root");
+    ReactDOM.createRoot(root).render(<App />);
   </script>
 </html>
