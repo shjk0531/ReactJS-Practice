@@ -17,29 +17,36 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    function Btn({ banana, big }) {
+    function Btn({ text, changeValue }) {
+      console.log(text, "was render");
       return (
         <button
+          onClick={changeValue}
           style={{
             backgroundColor: "orange",
             color: "white",
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
-            fontSize: big ? 20 : 15,
           }}
         >
-          {banana}
+          {text}
         </button>
       );
     }
 
+    const MemorizedBtn = React.memo(Btn);
+
     // div 생성
     function App() {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => {
+        setValue("Revert Changes");
+      };
       return (
         <div>
-          <Btn banana="Save Changes" big={true} />
-          <Btn banana="Continue" big={false} />
+          <MemorizedBtn text={value} changeValue={changeValue} />
+          <MemorizedBtn text="Continue" />
         </div>
       );
     }
