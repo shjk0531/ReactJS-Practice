@@ -17,7 +17,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    function Btn({ text, changeValue }) {
+    function Btn({ text, changeValue, fontSize = 12 }) {
       console.log(text, "was render");
       return (
         <button
@@ -28,6 +28,7 @@
             padding: "10px 20px",
             border: 0,
             borderRadius: 10,
+            fontSize: fontSize,
           }}
         >
           {text}
@@ -45,7 +46,7 @@
       };
       return (
         <div>
-          <MemorizedBtn text={value} changeValue={changeValue} />
+          <MemorizedBtn text={value} changeValue={changeValue} fontSize={18} />
           <MemorizedBtn text="Continue" />
         </div>
       );
